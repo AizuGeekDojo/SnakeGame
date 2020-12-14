@@ -7,6 +7,7 @@ const int CLK = 15, LAT = 32, OE = 33, ABC[3] = {25, 26, 27}, WIDTH = 32, HEIGHT
 SnakeGame *game = new SnakeGame(32, 16);
 _Web webs("SnakeGameAP");
 void setup() {
+  Serial.begin(115200);
   webs.init();
   for (int i = 0; i < 3; i++) {
     pinMode(RGB1[i], OUTPUT);
@@ -25,7 +26,10 @@ void loop() {
   static int dir = EMPTY;
   static unsigned long long int game_t = millis();
   int dirW=webs._update();
-  if(dirW!=EMPTY)game->Chg_direction(dirW);
+  if(dirW!=EMPTY){
+    dir=dirW;
+    game->Chg_direction(dirW);
+  }
   if (millis() - game_t >= 300) {
     game_t = millis();
     if (dir != EMPTY && game->_update() == OVER) {

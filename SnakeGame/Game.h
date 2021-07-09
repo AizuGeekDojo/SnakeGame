@@ -2,12 +2,12 @@
 #define DOWN 2
 #define RIGHT 3
 #define LEFT 4
-#define OVER 1
+#define OVER 5
 #define APPLE -1
 #define EMPTY 0
 class SnakeGame {
   private:
-    int max_x, max_y, Direction = RIGHT, len = 3;
+    int max_x, max_y, Direction = RIGHT;
     void put_apple() {
       int randx, randy;
       while (1) {
@@ -45,19 +45,19 @@ class SnakeGame {
       }
     }
   public:
-    int _map[128][128],x, y;
+    int _map[128][128],x, y,len = 3;
     SnakeGame(int _x, int _y) {
       max_x = _x;
       max_y = _y;
       x = max_x / 2;
-      y = max_y / 2;
+      y = max_y / 2+1;
       for (int i = 0; i < max_y; i++) {
         for (int j = 0; j < max_x; j++) {
           _map[i][j] = EMPTY;
         }
       }
       _map[y][x] = len;
-      put_apple();
+      _map[y][x+3]=APPLE;
     }
     void Chg_direction(int key) {
       switch (key) {

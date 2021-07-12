@@ -99,12 +99,13 @@ const int numbers[10][8]={
 
 SnakeGame *game = new SnakeGame(32, 16);
 _Web webs("SnakeGameAP");
+
 void showScore(int score){
-  int cnt=1;
+  int cnt=0;
   do{
     for(int i=0;i<8;i++){
       for(int j=0;j<6;j++){
-        game->_map[i][32-cnt*6+j]=((numbers[score%10][i]>>(5-j))&1)==1?0b100:0;
+        game->_map[i][26-cnt*7+j]=((numbers[score%10][i]>>(5-j))&1)==1?0b100:0;
       }
     }
     cnt++;
@@ -119,6 +120,7 @@ void showMap(){
     Serial.println();
   }
 }
+
 void setup() {
   Serial.begin(115200);
   webs.init();

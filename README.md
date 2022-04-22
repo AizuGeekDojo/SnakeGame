@@ -23,3 +23,25 @@ __index.html__<br>
 ## 追加案
 * 対戦ゲームにする
 * りんごを食べるごとに速度が上がる
+
+## 接続方法
+![image](https://user-images.githubusercontent.com/71514776/164587102-7cc63fa8-dffe-4ae4-bce4-40003993532d.png)
+上の図を参考に、以下のピンを繋げる。  
+| 繋げる先 | ピン番号 |
+| ------------- | ------------- |
+| R1  |  2 |
+| G1  |  0 |
+| B1  |  4 |
+| R2  | 16 |
+| G2  | 17 |
+| B2  |  5 |
+| A   | 25 |
+| B   | 26 |
+| C   | 27 |
+| CLK | 15 |
+| LAT | 32 |
+| OE  | 33 |
+| その他 | GND |
+
+## プログラム解説
+[Qiitaの記事](https://qiita.com/suzakutakumi3/items/e8b593d7fa8553f6caa7)を参照。
